@@ -7,8 +7,8 @@ loop do
   begin
     stream_client = StreamClient.new('stream.meetup.com','/2/open_events',80,redis_options)
     stream_client.listen_and_save
-  rescue
-
+  rescue Exception => e
+    puts "Interrupted/Error because of :: #{e.message}"
   end
 end
 
